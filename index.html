@@ -3,247 +3,384 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>İpek Tekstil — Kumaş, İplik & Örme</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<title>Teks-İplik A.Ş. — Kumaş ve İplik Fabrikası</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--teal:#0d7377;--gold:#d4a843;--bg:#f7f4f0;--dark:#1a1208;--card:#fff;--text:#2c1810;}
+:root{--bg:#3d1f6e;--accent:#c9a0dc;--font:'Poppins',sans-serif;}
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
-body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;overflow-x:hidden;}
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(26,18,8,.98);padding:0 6%;height:68px;display:flex;align-items:center;justify-content:space-between;}
-.logo{font-family:'DM Serif Display',serif;font-size:24px;color:#fff;}
-.logo span{color:var(--gold);}
-nav ul{list-style:none;display:flex;gap:28px;}
-nav a{color:rgba(255,255,255,.5);text-decoration:none;font-size:13px;font-weight:500;letter-spacing:.06em;transition:color .2s;}
-nav a:hover{color:var(--gold);}
-.nav-btn{background:var(--teal);color:#fff;padding:9px 22px;font-size:13px;font-weight:600;text-decoration:none;border-radius:4px;transition:opacity .2s;}
-.nav-btn:hover{opacity:.85;}
+body{background:var(--bg);color:#f0f0f0;font-family:var(--font);overflow-x:hidden;padding-bottom:72px;}
 
-/* MAGAZINE HERO */
-.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;background:var(--dark);}
-.hero-visual{position:relative;overflow:hidden;}
-.hero-visual img{width:100%;height:100%;object-fit:cover;filter:brightness(.9);}
-.texture-ov{position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(0,0,0,.03) 0,rgba(0,0,0,.03) 1px,transparent 1px,transparent 8px);}
-.swatch-bar{position:absolute;bottom:0;left:0;right:0;height:8px;background:linear-gradient(90deg,#0d7377,#d4a843,#e8c4a0,#2c8a6a,#8b4513);}
-.hero-text-side{display:flex;flex-direction:column;justify-content:center;padding:120px 8% 80px;background:linear-gradient(135deg,#1a1208 0%,#2c1810 100%);}
-.h-eyebrow{font-size:11px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;display:flex;align-items:center;gap:12px;}
-.h-eyebrow::before{content:'';width:24px;height:1px;background:var(--gold);}
-h1{font-family:'DM Serif Display',serif;font-size:clamp(2.8rem,4.5vw,4.2rem);font-weight:400;line-height:1.1;color:#fff;margin-bottom:20px;}
-h1 em{font-style:italic;color:var(--gold);}
-.hero-p{font-size:15px;color:rgba(255,255,255,.55);line-height:1.8;max-width:400px;margin-bottom:32px;font-weight:300;}
-.fabric-tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px;}
-.ftag{padding:5px 14px;font-size:11px;font-weight:600;border:1px solid rgba(212,168,67,.25);color:var(--gold);border-radius:50px;}
-.btns{display:flex;gap:12px;}
-.btn-t{background:var(--teal);color:#fff;padding:13px 28px;font-size:14px;font-weight:600;text-decoration:none;border-radius:4px;transition:opacity .2s;}
-.btn-t:hover{opacity:.85;}
-.btn-g{border:1px solid rgba(212,168,67,.3);color:var(--gold);padding:12px 24px;font-size:14px;font-weight:400;text-decoration:none;border-radius:4px;transition:all .2s;}
-.btn-g:hover{border-color:var(--gold);background:rgba(212,168,67,.05);}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(0,0,0,0.92);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.08);padding:16px 6%;display:flex;align-items:center;justify-content:space-between;transition:.3s;}
+.logo{font-size:22px;font-weight:800;color:#fff;letter-spacing:-0.02em;}.logo span{color:var(--accent);}
+nav ul{list-style:none;display:flex;gap:32px;}.nav-link{color:rgba(255,255,255,0.7);text-decoration:none;font-size:14px;font-weight:500;transition:color .2s;}.nav-link:hover{color:var(--accent);}
+.nav-cta{background:var(--accent);color:#000;padding:9px 22px;border-radius:50px;font-weight:700;font-size:13px;text-decoration:none;transition:opacity .2s;}.nav-cta:hover{opacity:.85;}
 
-.catalog{padding:90px 6%;background:var(--bg);}
-.sec-label{font-size:10px;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--teal);display:block;margin-bottom:10px;}
-.sec-h2{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,3vw,2.8rem);color:var(--dark);margin-bottom:48px;}
-.cat-masonry{columns:3;gap:16px;}
-.cat-item{break-inside:avoid;margin-bottom:16px;position:relative;overflow:hidden;cursor:pointer;}
-.cat-item img{width:100%;display:block;transition:transform .5s;}
-.cat-item:hover img{transform:scale(1.05);}
-.cat-label{position:absolute;bottom:0;left:0;right:0;padding:16px;background:linear-gradient(to top,rgba(26,18,8,.85),transparent);opacity:0;transition:opacity .3s;}
-.cat-item:hover .cat-label{opacity:1;}
-.cat-name{font-family:'DM Serif Display',serif;font-size:16px;color:#fff;font-style:italic;}
-.cat-sub{font-size:11px;color:rgba(255,255,255,.6);font-weight:500;letter-spacing:.1em;}
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:0 6%;}
+.hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=1200&q=80') center/cover no-repeat;}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,0,0,.88) 0%,rgba(0,0,0,.55) 60%,rgba(0,0,0,.3) 100%);}
+.hero-content{position:relative;z-index:2;max-width:680px;animation:heroIn .8s ease both;}
+@keyframes heroIn{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:20px;display:flex;align-items:center;gap:10px;}
+.eyebrow::before{content:'';width:30px;height:2px;background:var(--accent);}
+h1{font-size:clamp(2.2rem,5vw,3.8rem);font-weight:800;line-height:1.1;margin-bottom:24px;color:#fff;}
+h1 em{font-style:italic;color:var(--accent);}
+.hero-sub{font-size:17px;color:rgba(255,255,255,0.75);line-height:1.7;margin-bottom:36px;max-width:520px;}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;}
+.btn-primary{background:var(--accent);color:#000;padding:15px 32px;border-radius:50px;font-weight:800;font-size:15px;text-decoration:none;transition:transform .2s,box-shadow .2s;box-shadow:0 4px 20px rgba(0,0,0,.2);}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,0,0,.3);}
+.btn-outline{border:2px solid rgba(255,255,255,.4);color:#fff;padding:13px 28px;border-radius:50px;font-weight:600;font-size:15px;text-decoration:none;transition:border-color .2s,color .2s;}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent);}
 
-.quality{padding:80px 6%;background:#fff;}
-.q-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;max-width:1100px;margin:40px auto 0;}
-.q-img img{width:100%;aspect-ratio:4/5;object-fit:cover;}
-.q-text .sec-label{text-align:left;}
-.q-text h3{font-family:'DM Serif Display',serif;font-size:2.2rem;line-height:1.2;color:var(--dark);margin-bottom:16px;}
-.q-text p{font-size:15px;color:#7a6a5a;line-height:1.8;font-weight:300;margin-bottom:20px;}
-.cert-badges{display:flex;gap:12px;flex-wrap:wrap;}
-.cert{background:var(--bg);border:1px solid #ddd;padding:8px 16px;font-size:11px;font-weight:600;color:var(--text);letter-spacing:.05em;}
+/* STATS */
+.stats{background:var(--accent);padding:60px 6%;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center;}
+@media(max-width:768px){.stats{grid-template-columns:repeat(2,1fr);padding:40px 5%;}}
+.stat-item{padding:16px;}
+.stat-num{font-size:clamp(2rem,5vw,3rem);font-weight:800;color:#000;line-height:1;margin-bottom:8px;}
+.stat-lbl{font-size:12px;color:rgba(0,0,0,.7);font-weight:600;text-transform:uppercase;letter-spacing:.06em;}
 
-.stats{background:var(--dark);padding:60px 6%;display:grid;grid-template-columns:repeat(4,1fr);text-align:center;}
-.si{padding:28px;border-right:1px solid rgba(212,168,67,.1);}
-.si:last-child{border:none;}
-.sn{font-family:'DM Serif Display',serif;font-size:3.5rem;font-style:italic;color:var(--gold);line-height:1;}
-.sl{font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-top:10px;}
+/* SERVICES */
+.services{padding:90px 6%;background:color-mix(in srgb,var(--bg) 80%,#111);}
+.section-header{text-align:center;margin-bottom:60px;}
+.section-eyebrow{font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;}
+.section-title{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:800;color:#fff;}
+.grid-4{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;}
+.card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:32px 24px;transition:border-color .25s,transform .25s;}
+.card:hover{border-color:var(--accent);transform:translateY(-4px);}
+.card-icon{font-size:28px;color:var(--accent);margin-bottom:16px;}
+.card h3{font-size:17px;font-weight:700;color:#fff;margin-bottom:10px;}
+.card p{font-size:14px;color:rgba(255,255,255,.65);line-height:1.65;}
 
-.reviews{padding:80px 6%;background:var(--bg);}
-.r-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px;}
-.r-card{background:#fff;padding:28px;border-top:3px solid var(--teal);}
-.r-stars{color:var(--gold);font-size:15px;margin-bottom:10px;}
-.r-text{font-family:'DM Serif Display',serif;font-style:italic;font-size:15px;color:var(--text);line-height:1.7;margin-bottom:14px;}
-.r-name{font-size:11px;font-weight:600;color:var(--teal);letter-spacing:.1em;text-transform:uppercase;}
+/* REVIEWS */
+.reviews{padding:90px 6%;background:var(--bg);}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1100px;margin:0 auto;}
+@media(max-width:900px){.reviews-grid{grid-template-columns:1fr;}}
+.review-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:28px 24px;}
+.review-stars{font-size:18px;color:#f59e0b;margin-bottom:14px;}
+.review-text{font-size:14.5px;line-height:1.7;color:rgba(255,255,255,.8);font-style:italic;margin-bottom:16px;}
+.review-author{font-size:13px;font-weight:700;color:var(--accent);}
 
-.faq{padding:80px 6%;background:#fff;}
-.faq-wrap{max-width:760px;margin:40px auto 0;}
-.fi{border-bottom:1px solid #e0d8d0;}
-.fq{width:100%;background:none;border:none;display:flex;justify-content:space-between;align-items:center;padding:18px 0;font-family:'DM Serif Display',serif;font-size:18px;color:var(--dark);cursor:pointer;text-align:left;gap:12px;}
-.fq .ico{color:var(--teal);font-size:20px;transition:transform .2s;flex-shrink:0;font-family:'DM Sans',sans-serif;}
-.fq.open .ico{transform:rotate(45deg);}
-.fa{font-size:14px;color:#7a6a5a;line-height:1.75;max-height:0;overflow:hidden;transition:max-height .3s,padding .3s;}
-.fa.open{max-height:160px;padding-bottom:16px;}
+/* FAQ */
+.faq-section{padding:90px 6%;max-width:800px;margin:0 auto;}
+.faq-item{border-bottom:1px solid rgba(255,255,255,.1);overflow:hidden;}
+.faq-q{width:100%;background:none;border:none;display:flex;justify-content:space-between;align-items:center;padding:20px 0;font-size:15.5px;font-weight:600;color:#fff;cursor:pointer;text-align:left;gap:12px;-webkit-tap-highlight-color:transparent;font-family:var(--font);}
+.faq-q svg{flex-shrink:0;transition:transform .25s;color:var(--accent);}
+.faq-q.open svg{transform:rotate(180deg);}
+.faq-a{font-size:14.5px;color:rgba(255,255,255,.6);line-height:1.75;max-height:0;overflow:hidden;transition:max-height .3s,padding .3s;}
+.faq-a.open{max-height:200px;padding-bottom:18px;}
 
-.cta{background:var(--teal);padding:80px 6%;text-align:center;}
-.cta h2{font-family:'DM Serif Display',serif;font-size:clamp(2rem,4vw,3rem);color:#fff;margin-bottom:12px;}
-.cta h2 em{font-style:italic;color:var(--gold);}
-.cta p{color:rgba(255,255,255,.7);font-size:15px;margin-bottom:28px;font-weight:300;}
-.btn-cta{background:#fff;color:var(--teal);padding:14px 44px;font-size:14px;font-weight:700;text-decoration:none;border-radius:4px;transition:opacity .2s;}
-.btn-cta:hover{opacity:.9;}
+/* CTA */
+.cta{background:var(--accent);padding:90px 6%;text-align:center;}
+.cta-title{font-size:clamp(1.5rem,4.5vw,2.4rem);font-weight:800;color:#000;margin-bottom:16px;}
+.cta-desc{font-size:16px;color:rgba(0,0,0,.7);margin-bottom:32px;max-width:540px;margin-left:auto;margin-right:auto;line-height:1.6;}
+.cta-btn{display:inline-block;background:#000;color:var(--accent);font-weight:800;font-size:15px;padding:16px 38px;border-radius:50px;text-decoration:none;transition:transform .2s,box-shadow .2s;box-shadow:0 4px 20px rgba(0,0,0,.2);}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,0,0,.3);}
 
-.contact{padding:80px 6%;background:var(--bg);}
-.cg{display:grid;grid-template-columns:1fr 1fr;gap:60px;max-width:960px;margin:48px auto 0;}
-.ci h3{font-family:'DM Serif Display',serif;font-style:italic;font-size:22px;color:var(--teal);margin-bottom:20px;}
-.ci p{font-size:14px;color:#7a6a5a;line-height:2.4;font-weight:300;}
-.ci strong{color:var(--dark);}
-input,textarea{width:100%;background:#fff;border:1px solid #ddd;color:var(--dark);padding:14px;font-family:'DM Sans',sans-serif;font-size:14px;margin-bottom:12px;outline:none;border-radius:4px;transition:border-color .2s;}
-input:focus,textarea:focus{border-color:var(--teal);}
-textarea{height:90px;resize:vertical;}
-button[type=submit]{width:100%;background:var(--teal);color:#fff;border:none;border-radius:4px;padding:14px;font-family:'DM Sans',sans-serif;font-weight:600;font-size:15px;cursor:pointer;transition:opacity .2s;}
-button[type=submit]:hover{opacity:.85;}
+/* FOOTER */
+footer{background:#000;padding:40px 6%;text-align:center;border-top:1px solid rgba(255,255,255,.07);}
+.footer-logo{font-size:20px;font-weight:800;color:#fff;margin-bottom:10px;}.footer-logo span{color:var(--accent);}
+footer p{font-size:13px;color:rgba(255,255,255,.35);}
 
-footer{background:var(--dark);padding:28px 6%;display:flex;justify-content:space-between;align-items:center;}
-.fl{font-family:'DM Serif Display',serif;font-size:22px;color:#fff;}
-.fl span{color:var(--gold);}
-footer p{font-size:12px;color:rgba(255,255,255,.3);}
-
-.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s,transform .7s;}
+/* ANIMATIONS */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s,transform .6s;}
 .reveal.visible{opacity:1;transform:none;}
-@media(max-width:768px){.hero{grid-template-columns:1fr!important;}.hero-visual{height:50vw;}.cat-masonry{columns:2!important;}.q-grid,.stats,.r-grid,.cg{grid-template-columns:1fr!important;}body{padding-bottom:60px;}nav ul,.nav-btn{display:none;}}
-.mnav{display:none;position:fixed;bottom:0;left:0;right:0;height:60px;background:rgba(26,18,8,.98);border-top:2px solid var(--gold);z-index:9999;align-items:stretch;justify-content:space-around;}
-@media(max-width:768px){.mnav{display:flex!important;}}
-.mi{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;text-decoration:none;color:rgba(255,255,255,.3);font-size:9px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;-webkit-tap-highlight-color:transparent;transition:color .2s;}
-.mi.active,.mi:hover{color:var(--gold);}
-.mi svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;}
+
+/* CONTACT */
+#iletisim{padding:90px 6%;background:color-mix(in srgb,var(--bg) 90%,#111);}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;max-width:900px;margin:0 auto;}
+@media(max-width:768px){.contact-grid{grid-template-columns:1fr;}}
+.contact-info h3{font-size:20px;font-weight:700;color:#fff;margin-bottom:20px;}
+.contact-info p{color:rgba(255,255,255,.65);line-height:1.8;margin-bottom:12px;font-size:15px;}
+.contact-info strong{color:var(--accent);}
+.contact-form input,.contact-form textarea{width:100%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:14px 16px;color:#fff;font-size:15px;font-family:var(--font);margin-bottom:14px;outline:none;transition:border-color .2s;}
+.contact-form input:focus,.contact-form textarea:focus{border-color:var(--accent);}
+.contact-form textarea{height:120px;resize:vertical;}
+.contact-form button{width:100%;background:var(--accent);color:#000;border:none;padding:15px;border-radius:10px;font-weight:800;font-size:15px;cursor:pointer;font-family:var(--font);transition:opacity .2s;}.contact-form button:hover{opacity:.85;}
+</style>
+
+<style>
+@media(max-width:768px){
+  .menu-btn,.hamburger,.nav-toggle,nav button{display:none!important;visibility:hidden!important;}
+  nav ul,nav>ul{display:none!important;}
+  nav,#nav{padding:10px 5%!important;min-height:unset!important;height:auto!important;}
+  body{padding-bottom:72px!important;}
+  h1{font-size:clamp(1.7rem,7.5vw,3rem)!important;line-height:1.15!important;}
+  h2{font-size:clamp(1.3rem,6vw,2rem)!important;}
+  section{padding:56px 5%!important;}
+  [class*="grid"]{grid-template-columns:1fr!important;}
+  input,textarea,select{font-size:16px!important;}
+  img{max-width:100%;height:auto;}
+}
+@media(min-width:769px){.mobile-bottom-nav{display:none!important;}}
+nav.mobile-bottom-nav,.mobile-bottom-nav{
+  top:auto!important;bottom:0!important;left:0!important;right:0!important;
+  position:fixed!important;height:64px!important;z-index:99999!important;
+  padding:0 2px!important;border-bottom:none!important;
+  border-top:1px solid rgba(255,255,255,0.1)!important;
+  background:rgba(8,8,8,0.97)!important;backdrop-filter:blur(20px)!important;
+  -webkit-backdrop-filter:blur(20px)!important;
+  box-shadow:0 -6px 28px rgba(0,0,0,0.45)!important;
+}
+@media(max-width:768px){.mobile-bottom-nav{display:flex!important;align-items:stretch!important;justify-content:space-around!important;}}
+.mob-nav-item{flex:1!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:3px!important;text-decoration:none!important;color:rgba(255,255,255,0.42)!important;font-size:9px!important;font-weight:700!important;letter-spacing:0.05em!important;text-transform:uppercase!important;transition:color .18s!important;padding:6px 2px!important;position:relative!important;-webkit-tap-highlight-color:transparent!important;}
+.mob-nav-item.active{color:#fff!important;}
+.mob-nav-item svg{width:22px!important;height:22px!important;stroke:currentColor!important;fill:none!important;stroke-width:1.7!important;stroke-linecap:round!important;stroke-linejoin:round!important;}
+.mob-nav-item.active::after{content:'';position:absolute;bottom:5px;width:18px;height:2.5px;border-radius:2px;background:currentColor;}
 </style>
 </head>
 <body>
-<nav>
-  <div class="logo">İpek <span>Tekstil</span></div>
-  <ul><li><a href="#catalog">Kumaşlar</a></li><li><a href="#quality">Kalite</a></li><li><a href="#reviews">Referanslar</a></li><li><a href="#contact">İletişim</a></li></ul>
-  <a href="#contact" class="nav-btn">Teklif Al</a>
+
+<nav id="nav">
+  <div class="logo">Teks-İplik<span>.</span></div>
+  <ul>
+    <li><a href="#hizmetler" class="nav-link">Hizmetler</a></li>
+    <li><a href="#yorumlar" class="nav-link">Yorumlar</a></li>
+    <li><a href="#sss" class="nav-link">SSS</a></li>
+    <li><a href="#iletisim" class="nav-link">İletişim</a></li>
+  </ul>
+  <a href="#iletisim" class="nav-cta">İletişim</a>
 </nav>
 
-<section class="hero">
-  <div class="hero-visual">
-    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80" alt="Tekstil">
-    <div class="texture-ov"></div>
-    <div class="swatch-bar"></div>
-  </div>
-  <div class="hero-text-side">
-    <div class="h-eyebrow">Kumaş & İplik Üretimi</div>
-    <h1>Dokudan<br><em>Tasarıma,</em><br>Tasarımdan<br>Markaya.</h1>
-    <p class="hero-p">Pamuklu, keten, viskon, polyester. Ham iplikten bitmiş kumaşa entegre üretim. 25 yıllık tekstil deneyimi.</p>
-    <div class="fabric-tags">
-      <span class="ftag">Pamuk</span><span class="ftag">Keten</span><span class="ftag">Viskon</span><span class="ftag">Polyester</span>
-    </div>
-    <div class="btns">
-      <a href="#catalog" class="btn-t">Kumaş Kataloğu</a>
-      <a href="#contact" class="btn-g">Teklif Al</a>
+<header class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="eyebrow">Tekstil & Üretim</div>
+    <h1>Teks-İplik A.Ş. ile <em>fark yaratın.</em></h1>
+    <p class="hero-sub">Yüksek kaliteli ham iplik ve kumaş üretiminde Türkiye lideri.</p>
+    <div class="hero-btns">
+      <a href="#iletisim" class="btn-primary">Bugün İletişime Geçin</a>
+      <a href="#hizmetler" class="btn-outline">Hizmetlerimiz</a>
     </div>
   </div>
+</header>
+
+<section class="stats">
+
+        <div class="stat-item reveal">
+          <div class="stat-num">120+</div>
+          <div class="stat-lbl">Ürün Çeşidi</div>
+        </div>
+        <div class="stat-item reveal">
+          <div class="stat-num">25</div>
+          <div class="stat-lbl">Yıllık Deneyim</div>
+        </div>
+        <div class="stat-item reveal">
+          <div class="stat-num">40+</div>
+          <div class="stat-lbl">İhracat Ülkesi</div>
+        </div>
+        <div class="stat-item reveal">
+          <div class="stat-num">4.8</div>
+          <div class="stat-lbl">Tedarikçi Puanı</div>
+        </div>
 </section>
 
-<section class="catalog" id="catalog">
-  <span class="sec-label">Kumaş Koleksiyonu</span>
-  <h2 class="sec-h2">Her Doku İçin<br>Doğru Kumaş</h2>
-  <div class="cat-masonry reveal">
-    <div class="cat-item"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80" alt="Pamuk"><div class="cat-label"><div class="cat-name">Premium Pamuk</div><div class="cat-sub">80-400 gr/m²</div></div></div>
-    <div class="cat-item"><img src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=400&q=80" alt="Keten"><div class="cat-label"><div class="cat-name">Doğal Keten</div><div class="cat-sub">Nefes alır</div></div></div>
-    <div class="cat-item"><img src="https://images.unsplash.com/photo-1594938298603-c8148c4b4dc3?w=400&q=80" alt="Viskon"><div class="cat-label"><div class="cat-name">Viskon İpek</div><div class="cat-sub">Düşük drape</div></div></div>
-    <div class="cat-item"><img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&q=80" alt="Örgü"><div class="cat-label"><div class="cat-name">Örme Kumaş</div><div class="cat-sub">Esnek yapı</div></div></div>
-    <div class="cat-item"><img src="https://images.unsplash.com/photo-1586075010923-2dd4570fb338?w=400&q=80" alt="Polyester"><div class="cat-label"><div class="cat-name">Teknik Kumaş</div><div class="cat-sub">Endüstriyel</div></div></div>
+<section class="services" id="hizmetler">
+  <div class="section-header">
+    <div class="section-eyebrow">Hizmetlerimiz</div>
+    <h2 class="section-title">Size Neler Sunuyoruz?</h2>
+  </div>
+  <div class="grid-4">
+
+        <div class="card reveal">
+          <div class="card-icon">◆</div>
+          <h3>Kumaş Üretimi</h3>
+          <p>Pamuklu, sentetik ve karışık kumaş çeşitleri.</p>
+        </div>
+        <div class="card reveal">
+          <div class="card-icon">◆</div>
+          <h3>İplik Fabrikası</h3>
+          <p>Ne/30, Ne/40 ring iplik ve OE iplik üretimi.</p>
+        </div>
+        <div class="card reveal">
+          <div class="card-icon">◆</div>
+          <h3>Boyama</h3>
+          <p>ISO sertifikalı boyama ve apre işlemleri.</p>
+        </div>
+        <div class="card reveal">
+          <div class="card-icon">◆</div>
+          <h3>Toptan Satış</h3>
+          <p>Yurt içi ve ihracat toplu sipariş desteği.</p>
+        </div>
   </div>
 </section>
 
-<section class="quality" id="quality">
-  <span class="sec-label">Kalite Standartları</span>
-  <div class="q-grid reveal">
-    <div class="q-img"><img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80" alt="Kalite"></div>
-    <div class="q-text">
-      <span class="sec-label">Neden İpek Tekstil?</span>
-      <h3>Uluslararası<br>Sertifikalı<br>Üretim</h3>
-      <p>Tüm üretim süreçlerimiz OEKO-TEX ve GOTS sertifikalarıyla belgelenmiştir. Ham madde tedarikinden bitmiş ürüne her adımda izlenebilirlik.</p>
-      <div class="cert-badges">
-        <div class="cert">OEKO-TEX 100</div>
-        <div class="cert">GOTS Certified</div>
-        <div class="cert">ISO 9001</div>
-        <div class="cert">REACH Uyumlu</div>
-      </div>
-    </div>
+<section class="reviews" id="yorumlar">
+  <div class="section-header">
+    <div class="section-eyebrow">Müşteri Yorumları</div>
+    <h2 class="section-title">Müşterilerimiz Ne Diyor?</h2>
+  </div>
+  <div class="reviews-grid">
+
+        <div class="review-card reveal">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Kaliteli ham madde ve zamanında teslimat. İş ortağımız oldular."</p>
+          <div class="review-author">— Mert T.</div>
+        </div>
+        <div class="review-card reveal">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Renk tutarlılığı ve boyama kalitesi rakipsiz. Teşekkürler."</p>
+          <div class="review-author">— Selin K.</div>
+        </div>
+        <div class="review-card reveal">
+          <div class="review-stars">★★★★☆</div>
+          <p class="review-text">"Fiyat–kalite dengesi çok iyi. Toplu siparişlerde özel fiyat verdiler."</p>
+          <div class="review-author">— Ahmet D.</div>
+        </div>
   </div>
 </section>
 
-<div class="stats">
-  <div class="si reveal"><div class="sn" data-target="25">0</div><div class="sl">Yıllık Deneyim</div></div>
-  <div class="si reveal"><div class="sn" data-target="500">0</div><div class="sl">Kumaş Çeşidi</div></div>
-  <div class="si reveal"><div class="sn" data-target="40">0</div><div class="sl">İhracat Ülkesi</div></div>
-  <div class="si reveal"><div class="sn" data-target="200">0</div><div class="sl">Ton / Ay Kapasite</div></div>
-</div>
-
-<section class="reviews" id="reviews">
-  <span class="sec-label">Referanslar</span>
-  <h2 class="sec-h2 reveal">Müşterilerimiz Anlattı</h2>
-  <div class="r-grid">
-    <div class="r-card reveal"><div class="r-stars">★★★★★</div><p class="r-text">"Pamuklu kumaşları düzenli kullanıyoruz. Haslıkları mükemmel, renk tutarlılığı çok iyi."</p><div class="r-name">Moda Markası — İstanbul</div></div>
-    <div class="r-card reveal"><div class="r-stars">★★★★★</div><p class="r-text">"İhracat süreçlerinde sertifika gereksinimleri eksiksiz. Müşterilerimiz çok memnun."</p><div class="r-name">İhracatçı — Bursa</div></div>
-    <div class="r-card reveal"><div class="r-stars">★★★★★</div><p class="r-text">"Keten koleksiyonumuz için özel desen dokuturduk. Süreç çok profesyoneldi."</p><div class="r-name">Tasarımcı — İzmir</div></div>
+<section class="faq-section" id="sss">
+  <div class="section-header">
+    <div class="section-eyebrow">Sık Sorulan Sorular</div>
+    <h2 class="section-title">Merak Ettikleriniz</h2>
   </div>
-</section>
 
-<section class="faq" id="faq">
-  <span class="sec-label">SSS</span>
-  <h2 class="sec-h2 reveal">Sık Sorulanlar</h2>
-  <div class="faq-wrap">
-    <div class="fi"><button class="fq" onclick="faq(this)"><span>Minimum sipariş miktarı nedir?</span><span class="ico">+</span></button><div class="fa">Standart kumaşlarda minimum 50 m, özel desen / baskıda minimum 200 m sipariş kabul edilmektedir.</div></div>
-    <div class="fi"><button class="fq" onclick="faq(this)"><span>Numune temin edebilir miyim?</span><span class="ico">+</span></button><div class="fa">Evet, tüm kumaş çeşitlerimiz için numune kart ve metraj numune gönderebiliriz.</div></div>
-    <div class="fi"><button class="fq" onclick="faq(this)"><span>Özel renk ve desen yapılıyor mu?</span><span class="ico">+</span></button><div class="fa">Evet, pantone renk sistemiyle özel boyama ve özel desen dokuma hizmeti sunuyoruz.</div></div>
-  </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span>Minimum sipariş miktarı nedir?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-a">Standart siparişler için 100 kg minimum sipariş alınmaktadır.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span>İhracat yapıyor musunuz?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-a">Evet, 40'tan fazla ülkeye düzenli ihracat gerçekleştiriyoruz.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span>Numune temin edilebilir mi?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-a">Ücretli numune gönderimi için firmamızla iletişime geçin.</div>
+        </div>
 </section>
 
 <section class="cta">
-  <h2>Koleksiyonunuz İçin<br><em>Doğru Kumaşı</em> Bulalım</h2>
-  <p>Numune kataloğumuzu ücretsiz göndeririz.</p>
-  <a href="#contact" class="btn-cta">Teklif & Numune İste</a>
+  <h2 class="cta-title">Sipariş ve Fiyat Teklifi İçin</h2>
+  <p class="cta-desc">Yüksek kaliteli ham iplik ve kumaş üretiminde Türkiye lideri.</p>
+  <a href="#iletisim" class="cta-btn">Bugün İletişime Geçin</a>
 </section>
 
-<section class="contact" id="contact">
-  <span class="sec-label" style="display:block;text-align:center">İletişim</span>
-  <h2 class="sec-h2" style="text-align:center">Bize Ulaşın</h2>
-  <div class="cg">
-    <div class="ci reveal"><h3>Fabrika Bilgileri</h3><p><strong>Adres:</strong> Tekstil OSB, Bursa<br><strong>Tel:</strong> 0224 XXX XX XX<br><strong>E-posta:</strong> satis@ipektekstil.com.tr<br><strong>Mesai:</strong> Pzt–Cum 08:00–17:30</p></div>
-    <div class="reveal">
-      <input type="text" placeholder="Firma / Ad Soyad">
-      <input type="tel" placeholder="Telefon">
-      <textarea placeholder="İhtiyaç duyduğunuz kumaş türü, miktar, kullanım amacı..."></textarea>
-      <button type="submit">Teklif & Numune İste</button>
+<section id="iletisim">
+  <div class="section-header">
+    <div class="section-eyebrow">İletişim</div>
+    <h2 class="section-title">Bizimle İletişime Geçin</h2>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-info reveal">
+      <h3>Bilgilerimiz</h3>
+      <p><strong>Firma:</strong> Teks-İplik A.Ş.</p>
+      <p><strong>Sektör:</strong> Tekstil & Üretim</p>
+      <p><strong>Telefon:</strong> 0850 XXX XX XX</p>
+      <p><strong>E-posta:</strong> info@kumas-iplik.com</p>
+      <p><strong>Adres:</strong> İstanbul, Türkiye</p>
+    </div>
+    <div class="contact-form reveal">
+      <input type="text" placeholder="Adınız Soyadınız">
+      <input type="tel" placeholder="Telefon Numaranız">
+      <input type="email" placeholder="E-posta Adresiniz">
+      <textarea placeholder="Mesajınız..."></textarea>
+      <button type="submit">Gönder →</button>
     </div>
   </div>
 </section>
 
 <footer>
-  <div class="fl">İpek <span>Tekstil</span></div>
-  <p>© 2026 İpek Tekstil San. Tic. A.Ş. Tüm hakları saklıdır.</p>
+  <div class="footer-logo">Teks-İplik<span>.</span></div>
+  <p>© 2026 Teks-İplik A.Ş.. Tüm hakları saklıdır.</p>
 </footer>
 
-<nav class="mnav">
-  <a href="#catalog" class="mi active"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>Kumaşlar</a>
-  <a href="#quality" class="mi"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Kalite</a>
-  <a href="#reviews" class="mi"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Referans</a>
-  <a href="#contact" class="mi"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.8 19.8 0 01-8.63-3.07"/></svg>Teklif</a>
+<nav class="mobile-bottom-nav" id="mbn">
+  <a href="#hizmetler" class="mob-nav-item active"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg><span>Hizmetler</span></a>
+  <a href="#yorumlar" class="mob-nav-item"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><span>Yorumlar</span></a>
+  <a href="#sss" class="mob-nav-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4m0 4h.01"/></svg><span>SSS</span></a>
+  <a href="#iletisim" class="mob-nav-item"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.05 2.18 2 2 0 012.04 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><span>İletişim</span></a>
 </nav>
 
 <script>
-const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:.1});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-const o2=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){
-  document.querySelectorAll('[data-target]').forEach(el=>{const t=+el.dataset.target;let s=null;
-    const step=ts=>{if(!s)s=ts;const p=Math.min((ts-s)/1200,1),v=Math.round((1-Math.pow(1-p,3))*t);
-    el.textContent=v;if(p<1)requestAnimationFrame(step);};requestAnimationFrame(step);});
-  o2.disconnect();}})},{threshold:.4});
-const sb=document.querySelector('.stats');if(sb)o2.observe(sb);
-document.querySelectorAll('.mi').forEach(m=>{m.addEventListener('click',()=>{document.querySelectorAll('.mi').forEach(x=>x.classList.remove('active'));m.classList.add('active');});});
-function faq(b){const a=b.nextElementSibling,o=b.classList.contains('open');
-  document.querySelectorAll('.fq.open').forEach(x=>{x.classList.remove('open');x.nextElementSibling.classList.remove('open');});
-  if(!o){b.classList.add('open');a.classList.add('open');}}
+// Scroll reveal
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); } });
+}, {threshold:0.12});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// Nav scroll
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => { nav.style.background = scrollY > 60 ? 'rgba(0,0,0,0.98)' : 'rgba(0,0,0,0.92)'; }, {passive:true});
+
+// Mobile nav active
+(function(){
+  const items = document.querySelectorAll('.mob-nav-item');
+  const secs = [];
+  items.forEach(item => {
+    const h = item.getAttribute('href');
+    if(h && h.startsWith('#') && h.length > 1) {
+      const el = document.querySelector(h);
+      if(el) secs.push({item, el});
+    }
+    item.addEventListener('click', () => {
+      items.forEach(i => i.classList.remove('active'));
+      item.classList.add('active');
+    });
+  });
+  if(secs.length) window.addEventListener('scroll', () => {
+    const sy = window.pageYOffset + 120;
+    let cur = secs[0];
+    secs.forEach(s => { if(s.el.offsetTop <= sy) cur = s; });
+    items.forEach(i => i.classList.remove('active'));
+    cur.item.classList.add('active');
+  }, {passive:true});
+})();
+
+// FAQ
+function toggleFaq(btn) {
+  const a = btn.parentElement.querySelector('.faq-a');
+  const open = btn.classList.contains('open');
+  document.querySelectorAll('.faq-q.open').forEach(b => {
+    b.classList.remove('open');
+    b.parentElement.querySelector('.faq-a').classList.remove('open');
+  });
+  if(!open) { btn.classList.add('open'); a.classList.add('open'); }
+}
+
+// Stats count-up
+(function(){
+  const stats = document.querySelectorAll('.stat-num');
+  let done = false;
+  const obs = new IntersectionObserver(entries => {
+    if(done) return;
+    entries.forEach(e => {
+      if(e.isIntersecting) {
+        done = true;
+        stats.forEach(el => {
+          const t = el.textContent;
+          const n = parseFloat(t.replace(/[^0-9.]/g,''));
+          const suf = t.replace(/[0-9.]/g,'');
+          if(isNaN(n)) return;
+          let start = null;
+          const step = ts => {
+            if(!start) start = ts;
+            const p = Math.min((ts-start)/1400,1);
+            const e2 = 1-Math.pow(1-p,3);
+            el.textContent = Math.round(e2*n*10)/10 + suf;
+            if(p<1) requestAnimationFrame(step);
+          };
+          requestAnimationFrame(step);
+        });
+        obs.disconnect();
+      }
+    });
+  }, {threshold:0.3});
+  const s = document.querySelector('.stats');
+  if(s) obs.observe(s);
+})();
 </script>
 </body>
 </html>
